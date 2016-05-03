@@ -56,7 +56,29 @@ var addresses =
 
 var citiesStates =
 [
-    "Richmond,VA,Virginia",
+  "Richmond,VA,Virginia",
+  "Chesterfield,VA,Virginia",
+  "Chester,VA,Virginia",
+  "Asland,VA,Virginia",
+  "Hopewell,VA,Virginia",
+  "Goochland,VA,Virginia",
+  "Carey,NC,North Carolina",
+  "Anaheim,CA,California",
+  "Dallas,TX,Texas",
+  "New York,NY,New York",
+  "White Plains,NY,New York",
+  "Las Vegas,NV,Nevada",
+  "Los Angeles,CA,California",
+  "Portland,OR,Oregon",
+  "Seattle,WA,Washington",
+  "Houston,TX,Texas",
+  "Chicago,IL,Illinois",
+  "Atlanta,GA,Georgia",
+  "Chandler,AZ,Arizona",
+  "Buffalo,NY,New York",
+  "Albuquerque,AZ,Arizona",
+  "Boise,ID,Idaho",
+  "Salt Lake City,UT,Utah"
 
 ];
 
@@ -109,7 +131,7 @@ for (i = 0; i < l; i++) {
         , 'zip': zip + i
         , 'gender': nameGenderHost[2]
         , 'id': i + 1
-        , 'orderCount': 4
+        , 'orderCount': 3
     };
     //Random Customer Order Math
     firstOrder = Math.floor(Math.random() * orders.length);
