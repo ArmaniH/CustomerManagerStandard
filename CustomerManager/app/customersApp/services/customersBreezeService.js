@@ -76,7 +76,7 @@
                 customer.entityAspect.setDeleted();
             }
             else {
-                //Really a CustomerSummary so we're going to add a new Customer 
+                //Really a CustomerSummary so we're going to add a new Customer
                 //and mark it as deleted. That allows us to save some code and avoid having
                 //a separate method to deal with the CustomerSummary projection
                 customer = entityManager.createEntity('Customer', { id: id, gender: 'Male' }, breeze.EntityState.Deleted);

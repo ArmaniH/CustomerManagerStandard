@@ -56,52 +56,31 @@ var addresses =
 
 var citiesStates =
 [
-    "Phoenix,AZ,Arizona",
-    "Encinitas,CA,California",
-    "Seattle,WA,Washington",
-    "Chandler,AZ,Arizona",
-    "Dallas,TX,Texas",
-    "Orlando,FL,Florida",
-    "Carey,NC,North Carolina",
-    "Anaheim,CA,California",
-    "Dallas,TX,Texas",
-    "New York,NY,New York",
-    "White Plains,NY,New York",
-    "Las Vegas,NV,Nevada",
-    "Los Angeles,CA,California",
-    "Portland,OR,Oregon",
-    "Seattle,WA,Washington",
-    "Houston,TX,Texas",
-    "Chicago,IL,Illinois",
-    "Atlanta,GA,Georgia",
-    "Chandler,AZ,Arizona",
-    "Buffalo,NY,New York",
-    "Albuquerque,AZ,Arizona",
-    "Boise,ID,Idaho",
-    "Salt Lake City,UT,Utah"
+    "Richmond,VA,Virginia",
+
 ];
 
 var citiesIds = [5, 9, 44, 5, 36, 17, 16, 9, 36, 14, 14, 6, 9, 24, 44, 36, 25, 19, 5, 14, 5, 23, 38];
 
 
-var zip = 85229;
+var zip = 23220;
 
 var orders =
 [
-  { "product": "Basket", "price": 29.99, "quantity": 1 },
-  { "product": "Yarn", "price": 9.99, "quantity": 1 },
-  { "product": "Needes", "price": 5.99, "quantity": 1 },
-  { "product": "Speakers", "price": 499.99, "quantity": 1 },
-  { "product": "iPod", "price": 399.99, "quantity": 1 },
-  { "product": "Table", "price": 329.99, "quantity": 1 },
-  { "product": "Chair", "price": 129.99, "quantity": 4 },
-  { "product": "Lamp", "price": 89.99, "quantity": 5 },
-  { "product": "Call of Duty", "price": 59.99, "quantity": 1 },
-  { "product": "Controller", "price": 49.99, "quantity": 1 },
-  { "product": "Gears of War", "price": 49.99, "quantity": 1 },
-  { "product": "Lego City", "price": 49.99, "quantity": 1 },
-  { "product": "Baseball", "price": 9.99, "quantity": 5 },
-  { "product": "Bat", "price": 19.99, "quantity": 1 }
+  { "service": "Mowing", "technician": "Steve", "price": 29.99, "quantity": 1 },
+  { "service": "Hedge Trim", "technician": "Peter", "price": 19.99, "quantity": 1 },
+  { "service": "Leaf Rake", "technician": "Paul", "price": 35.99, "quantity": 2 },
+  { "service": "Pwr Wash Wlkwy", "technician": "Mary", "price": 99.99, "quantity": 1 },
+  { "service": "Weed Treating", "technician": "Steve", "price": 29.99, "quantity": 1 },
+  { "service": "Leaf Collection", "technician": "Peter", "price": 29.99, "quantity": 3 },
+  { "service": "Clipping Disposal", "technician": "Paul", "price": 29.99, "quantity": 4 },
+  { "service": "Lawn Edging", "technician": "Mary", "price": 9.99, "quantity": 5 },
+  { "service": "Pest Treatment", "technician": "Steve", "price": 59.99, "quantity": 1 },
+  { "service": "Raised Beds", "technician": "Peter", "price": 99.99, "quantity": 1 },
+  { "service": "Tree Limb Remvl", "technician": "Paul", "price": 99.99, "quantity": 1 },
+  { "service": "Winterizing", "technician": "Mary", "price": 49.99, "quantity": 1 },
+  { "service": "Watering", "technician": "Steve", "price": 9.99, "quantity": 5 },
+  { "service": "Sod", "technician": "Peter", "price": 199.99, "quantity": 1 }
 ];
 
 db.customers.remove({});
@@ -130,8 +109,9 @@ for (i = 0; i < l; i++) {
         , 'zip': zip + i
         , 'gender': nameGenderHost[2]
         , 'id': i + 1
-        , 'orderCount': 0
+        , 'orderCount': 3
     };
+    //Random Customer Order Math
     firstOrder = Math.floor(Math.random() * orders.length);
     lastOrder = Math.floor(Math.random() * orders.length);
     if (firstOrder > lastOrder) {
@@ -139,7 +119,6 @@ for (i = 0; i < l; i++) {
         firstOrder = lastOrder;
         lastOrder = tempOrder;
     }
-
     c.orders = [];
     print('firstOrder: ' + firstOrder + ", lastOrder: " + lastOrder);
     for (j = firstOrder; j <= lastOrder && j < n; j++) {
@@ -148,10 +127,11 @@ for (i = 0; i < l; i++) {
         tomorrow.setDate(today.getDate() + (Math.random() * 100));
 
         var o = {
-            "product": orders[j].product,
-            "price": orders[j].price,
+            "service": orders[j].service,
+            "date": tomorrow,
+            "technician": orders[j].technician,
             "quantity": orders[j].quantity,
-            "date": tomorrow
+            "price": orders[j].price,
         };
         c.orders.push(o);
     }
@@ -229,7 +209,3 @@ for (i = 0; i < l; i++) {
     var r = { 'id': i + 1, 'name': states[i].name, 'abbreviation': states[i].abbreviation };
     db.states.insert(r);
 }
-
-
-
-

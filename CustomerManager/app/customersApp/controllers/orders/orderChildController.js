@@ -12,6 +12,13 @@
 
         init();
 
+        vm.pushOrder = function (){
+          vm.order.push(
+            {
+              product: $scope.editOrder.product,
+            });
+        };
+
         vm.setOrder = function (orderby) {
             if (orderby === vm.orderby) {
                 vm.reverse = !vm.reverse;

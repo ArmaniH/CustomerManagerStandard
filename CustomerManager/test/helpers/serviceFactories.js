@@ -236,7 +236,7 @@
                     ]
                 },
                 {
-                    "name": "product",
+                    "name": "service",
                     "dataType": "String",
                     "maxLength": 50,
                     "validators": [
@@ -247,18 +247,29 @@
                     ]
                 },
                 {
-                    "name": "price",
-                    "dataType": "Decimal",
-                    "isNullable": false,
-                    "defaultValue": 0,
+                    "name": "technician",
+                    "dataType": "String",
+                    "maxLength": 50,
                     "validators": [
                       {
-                          "name": "required"
-                      },
-                      {
-                          "name": "number"
+                          "maxLength": 50,
+                          "name": "maxLength"
                       }
                     ]
+                },
+                {
+                  "name": "date",
+                  "dataType": "DateTime",
+                  "isNullable": false,
+                  "defaultValue": "1900-01-01T07:00:00.000Z",
+                  "validators": [
+                    {
+                      "name": "required"
+                    },
+                    {
+                      "name": "date"
+                    }
+                  ]
                 },
                 {
                     "name": "quantity",
@@ -275,18 +286,18 @@
                     ]
                 },
                 {
-                    "name": "date",
-                    "dataType": "DateTime",
-                    "isNullable": false,
-                    "defaultValue": "1900-01-01T07:00:00.000Z",
-                    "validators": [
-                      {
-                          "name": "required"
-                      },
-                      {
-                          "name": "date"
-                      }
-                    ]
+                  "name": "price",
+                  "dataType": "Decimal",
+                  "isNullable": false,
+                  "defaultValue": 0,
+                  "validators": [
+                    {
+                      "name": "required"
+                    },
+                    {
+                      "name": "number"
+                    }
+                  ]
                 },
                 {
                     "name": "customerId",

@@ -13,13 +13,16 @@ var SettingsSchema = new Schema({
 });
 
 var OrderSchema = new Schema({
-  product : {
+  service : {
     type : String, required: true, trim: true
   },
-  price : {
-    type : Number,
+  technician : {
+    type : String, required: true, trim: true
   },
   quantity : {
+    type : Number,
+  },
+  price : {
     type : Number,
   }
 });

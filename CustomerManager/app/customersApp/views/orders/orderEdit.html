@@ -1,0 +1,100 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} New Order</h3>
+        </header>
+        <form name="editForm" novalidate>
+            <div class="orderEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{ vm.order.firstName + ' ' + vm.order.lastName }} <span data-ng-hide="vm.order.id == 0">(<a style="font-size:12pt" href="#/orderorders/{{vm.order.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        Service:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="service" class="form-control" data-ng-model="vm.order.service" required />
+                        <span class="errorMessage" ng-show="editForm.service.$touched && editForm.service.$invalid">
+                            Service is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Date:
+                    </div>
+                    <div class="col-md-10">
+                      <input type="text" name="date" class="form-control" data-ng-model="vm.order.date" required />
+                      <span class="errorMessage" ng-show="editForm.date.$touched && editForm.date.$invalid">
+                        Date is required
+                      </span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                  <div class="col-md-2">
+                    Technician:
+                  </div>
+                  <div class="col-md-10">
+                    <input type="text" name="technician" class="form-control" data-ng-model="vm.order.technician" required />
+                    <span class="errorMessage" ng-show="editForm.technician.$touched && editForm.technician.$invalid">
+                      Technician is required
+                    </span>
+                  </div>
+                </div>
+                <br />
+                <div class="row">
+                  <div class="col-md-2">
+                    Quantity:
+                  </div>
+                  <div class="col-md-10">
+                    <input type="text" name="quantity" class="form-control" data-ng-model="vm.order.quantity" required />
+                    <span class="errorMessage" ng-show="editForm.quantity.$touched && editForm.quantity.$invalid">
+                      Quantity is required
+                    </span>
+                  </div>
+                </div>
+                <br />
+                <div class="row">
+                  <div class="col-md-2">
+                    Price:
+                  </div>
+                  <div class="col-md-10">
+                    <input type="text" name="price" class="form-control" data-ng-model="vm.order.price" required />
+                    <span class="errorMessage" ng-show="editForm.price.$touched && editForm.price.$invalid">
+                      Price is required
+                    </span>
+                  </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveOrder()"
+                                ng-disabled="editForm.$invalid || !editForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.order.id > 0" data-ng-click="vm.deleteOrder()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Customer updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

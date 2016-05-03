@@ -28,6 +28,11 @@
                 templateUrl: viewBase + 'orders/orders.html',
                 controllerAs: 'vm'
             })
+            .when('/orderedit', {
+                controller: 'OrdersController',
+                templateUrl: viewBase + 'orders/orderEdit.html',
+                controllerAs: 'vm'
+            })
             .when('/about', {
                 controller: 'AboutController',
                 templateUrl: viewBase + 'about.html',
@@ -44,8 +49,8 @@
 
     app.run(['$rootScope', '$location', 'authService',
         function ($rootScope, $location, authService) {
-            
-            //Client-side security. Server-side framework MUST add it's 
+
+            //Client-side security. Server-side framework MUST add it's
             //own security as well since client-based security is easily hacked
             $rootScope.$on("$routeChangeStart", function (event, next, current) {
                 if (next && next.$$route && next.$$route.secure) {
@@ -60,4 +65,3 @@
     }]);
 
 }());
-

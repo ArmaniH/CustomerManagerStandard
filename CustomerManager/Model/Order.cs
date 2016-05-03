@@ -10,10 +10,11 @@ namespace CustomerManager.Model
     {
         public int Id { get; set; }
         [StringLength(50)]
-        public string Product { get; set; }
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
+        public string Service { get; set; }
         public DateTime Date { get; set; }
+        public string Technician { get; set; }
+        public int Quantity { get; set; }
+        public decimal Price { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
 
