@@ -54,7 +54,7 @@ var CustomerSchema = new Schema({
       type : String
     },
     name : {
-      type :  String, required: true, trim: true
+      type :  String, trim: true
     }
   },
   zip : {
