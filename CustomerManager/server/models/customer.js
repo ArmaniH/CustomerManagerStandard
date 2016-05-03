@@ -51,7 +51,7 @@ var CustomerSchema = new Schema({
       type : Number
     },
     abbreviation : {
-      type : String, required: true, trim: true
+      type : String
     },
     name : {
       type :  String, required: true, trim: true

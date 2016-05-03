@@ -109,7 +109,7 @@ for (i = 0; i < l; i++) {
         , 'zip': zip + i
         , 'gender': nameGenderHost[2]
         , 'id': i + 1
-        , 'orderCount': 3
+        , 'orderCount': 4
     };
     //Random Customer Order Math
     firstOrder = Math.floor(Math.random() * orders.length);

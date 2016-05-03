@@ -14,7 +14,7 @@
     </thead>
     <tbody>
         <tr data-ng-hide="vm.customer.orders || vm.customer.orders.length > 0" class="error">
-            <td colspan="5">
+            <td colspan="6">
                 <div class="text-center"><strong>No orders found</strong></div>
             </td>
         </tr>
@@ -24,6 +24,9 @@
             </td>
             <td>
                 {{ order.date | date:'MM/dd/yyyy' }}
+            </td>
+            <td>
+                {{ order.technician }}
             </td>
             <td>
                 {{ order.quantity }}
@@ -36,7 +39,7 @@
             </td>
         </tr>
         <tr class="info">
-            <td colspan="4">
+            <td colspan="5">
                 &nbsp;
             </td>
             <td>
